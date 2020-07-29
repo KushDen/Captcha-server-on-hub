@@ -24,11 +24,7 @@ def download():
 
     except Exception as e:
         print(e)
-        return models[0] #redirect(url_for('upload'))
+        return redirect(url_for('upload'))
+    
 if __name__ == '__main__':
-    model_getter = os.listdir(".")
-    models = []
-    for names in model_getter:
-        if names.endswith(".h5"):
-            models.append(names)
     app.run(debug=True,host='0.0.0.0')

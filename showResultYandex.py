@@ -33,14 +33,14 @@ def show_result(image):
     image = img.reshape(1, 64, 256, 1)
 
     new_model = keras.models.load_model("modelForYandexCPU.h5", compile=False)
-    #new_model.load_weights('actModelYandex.hdf5')
+    new_model.load_weights('modelYandex.hdf5')
     
-    #prediction = new_model.predict(image)
+    prediction = new_model.predict(image)
 
-    #out = K.get_value(K.ctc_decode(prediction, input_length=np.ones(prediction.shape[0])*prediction.shape[1],
-    #                         greedy=True)[0][0])
+    out = K.get_value(K.ctc_decode(prediction, input_length=np.ones(prediction.shape[0])*prediction.shape[1],
+                             greedy=True)[0][0])
     
-    #out_best = list(filter(lambda x : x != -1, out[0]))
-    #K.clear_session()
+    out_best = list(filter(lambda x : x != -1, out[0]))
+    K.clear_session()
 
-    return "good" #''.join(encode_to_word(out_best))
+    return ''.join(encode_to_word(out_best))
