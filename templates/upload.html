@@ -1,0 +1,21 @@
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <title>Image</title>
+</head>
+
+<body>
+    <form action="{{ url_for('download') }}" method="post" enctype=multipart/form-data>
+
+        <div id="content">
+		 <center><p class="titre">Please, download the image</p></center>
+		
+            <center><input type="file" name="fileToUpload" id="fileToUpload"></center>
+            <br>
+  		<center><input type="submit" value="Send Post" id = "submit_button"></center>
+            
+        </div>
+
+    </form>
+</body>
